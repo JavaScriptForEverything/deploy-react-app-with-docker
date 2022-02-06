@@ -1,5 +1,6 @@
 FROM node:16.13.2-alpine3.15
 RUN addgroup app && adduser -S -G app app
+RUN mkdir /app && chown -R app:app /app
 USER app
 WORKDIR /app
 COPY package.json yarn.lock ./

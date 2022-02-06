@@ -9,8 +9,8 @@ RUN yarn run build
 
 # Stage-2: Production-Stage
 FROM nginx:1.21.6-alpine
-RUN addgroup app && adduser -S -G app app
-USER app
+# RUN addgroup app && adduser -S -G app app
+# USER app
 COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
